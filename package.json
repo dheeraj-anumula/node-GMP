@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "task1": "node task1"
+    "task1": "node task1.1"
   },
   "keywords": [],
   "author": "",
