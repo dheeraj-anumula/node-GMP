@@ -14,6 +14,7 @@ const writeStream = fs.createWriteStream(
 pipeline(readableStream, csvtojson(), writeStream, (error) => {
   if (error) {
     console.log(error);
+    return;
   }
   console.log("Successfully converted");
 });
