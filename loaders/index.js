@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import expressLoader from './express';
 import sequelizeLoader from './sequelize';
 
