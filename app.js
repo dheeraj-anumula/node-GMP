@@ -1,10 +1,20 @@
+/* eslint-disable no-console */
 import express from 'express';
-import userRouter from './routes/userRouter';
+import loaders from './loaders';
+import config from './config';
 
-const app = express();
+async function startServer() {
+  const app = express();
 
-app.use(express.json());
+  await loaders({ expressApp: app });
 
-app.use(userRouter);
+  app.listen(config.port, (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log(`Your server is ready at ${config.port} !`);
+  });
+}
 
-app.listen(4000);
+startServer();
