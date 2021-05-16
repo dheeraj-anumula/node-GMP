@@ -42,7 +42,7 @@ userRouter.post('/users', validator.body(userSchema), async (req, res) => {
 userRouter.delete('/users/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const response = await userService.delete(id);
+    const response = await userService.softDelete(id);
     res.send(response);
   } catch (error) {
     res.status(500).send(error.message);

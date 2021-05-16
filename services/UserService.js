@@ -28,4 +28,20 @@ export default class UserService extends BaseService {
       throw new Error(error);
     }
   }
+
+  async softDelete(id) {
+    try {
+      const response = await this.model.update(
+        { isDeleted: true },
+        {
+          where: {
+            id,
+          },
+        },
+      );
+      return response;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
