@@ -1,9 +1,10 @@
 import { Sequelize, DataTypes } from 'sequelize';
-import { USERS } from '../constants/tables';
+import { PERMISSIONS } from '../constants';
+import { GROUPS } from '../constants/tables';
 import { sequelize } from '../loaders/sequelize';
 
-const User = sequelize.define(
-  USERS,
+const Group = sequelize.define(
+  GROUPS,
   {
     id: {
       type: DataTypes.UUID,
@@ -11,21 +12,16 @@ const User = sequelize.define(
       defaultValue: Sequelize.UUIDV4,
       primaryKey: true,
     },
-    login: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    age: {
-      type: DataTypes.NUMBER,
-      allowNull: false,
-      validate: { min: 4, max: 130 },
-    },
-    isDeleted: {
-      type: DataTypes.BOOLEAN,
+    permissions: {
+      type: DataTypes.ARRAY(
+        DataTypes.ENUM({
+          values: PERMISSIONS,
+        }),
+      ),
       allowNull: false,
     },
   },
@@ -34,4 +30,4 @@ const User = sequelize.define(
   },
 );
 
-export default User;
+export default Group;

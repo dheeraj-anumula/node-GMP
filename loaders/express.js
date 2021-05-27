@@ -1,5 +1,5 @@
 import express from 'express';
-import userRouter from '../routes/userRouter';
+import { groupRouter, UserGroupsRouter, userRouter } from '../routes';
 
 export default async ({ app }) => {
   app.get('/status', (req, res) => {
@@ -7,6 +7,7 @@ export default async ({ app }) => {
   });
   app.use(express.json());
   app.use(userRouter);
-
+  app.use(groupRouter);
+  app.use(UserGroupsRouter);
   return app;
 };

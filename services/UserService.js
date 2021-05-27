@@ -1,52 +1,10 @@
 import { Op } from 'sequelize';
+import BaseService from './BaseService';
 
-export default class UserService {
+export default class UserService extends BaseService {
   constructor(userModel) {
+    super(userModel);
     this.userModel = userModel;
-  }
-
-  async getUserById(id) {
-    try {
-      const user = await this.userModel.findByPk(id);
-      return user;
-    } catch (error) {
-      throw new Error(error);
-    }
-  }
-
-  async createUser(user) {
-    try {
-      const response = await this.userModel.create(user);
-      return response;
-    } catch (error) {
-      throw new Error(error);
-    }
-  }
-
-  async deleteUser(id) {
-    try {
-      const response = await this.userModel.destroy({
-        where: {
-          id,
-        },
-      });
-      return response;
-    } catch (error) {
-      throw new Error(error);
-    }
-  }
-
-  async updateUser(id, user) {
-    try {
-      const response = await this.userModel.update(user, {
-        where: {
-          id,
-        },
-      });
-      return response;
-    } catch (error) {
-      throw new Error(error);
-    }
   }
 
   async getAutoSuggestUsers(login, limit) {
@@ -65,6 +23,22 @@ export default class UserService {
           limit,
         });
       }
+      return response;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async softDelete(id) {
+    try {
+      const response = await this.model.update(
+        { isDeleted: true },
+        {
+          where: {
+            id,
+          },
+        },
+      );
       return response;
     } catch (error) {
       throw new Error(error);
