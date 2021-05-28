@@ -11,5 +11,6 @@ module.exports = {
   rules: {
     'linebreak-style': 0,
     'operator-linebreak': 0,
+    'comma-dangle': 0,
   },
 };
