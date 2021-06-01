@@ -6,7 +6,7 @@ import {
   CONNECTION_SUCCESS,
   CONNECTION_CLOSED,
 } from '../constants';
-import { logger } from './logger';
+import { logger } from '../middlewares/logger';
 
 export const sequelize = new Sequelize(config.databaseURL, {
   logging: (msg) => logger.info(msg),

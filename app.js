@@ -2,7 +2,7 @@
 import express from 'express';
 import loaders from './loaders';
 import config from './config';
-import { logger } from './loaders/logger';
+import { logger } from './middlewares/logger';
 import {
   ENV_PORT_UNDEF,
   UNHANDLED_REJECTION,
