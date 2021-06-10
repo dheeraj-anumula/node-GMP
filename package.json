@@ -19,7 +19,8 @@
     "joi": "^17.4.0",
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
