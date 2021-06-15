@@ -7,3 +7,7 @@ export const CONNECTION_CLOSE_FAIL = 'Closing sequelize connection failed.';
 export const UNHANDLED_REJECTION = 'unhandledRejection';
 export const ENV_PORT_UNDEF = 'env port is undefined.';
 export const UNCAUGHT_EXCEPTION = 'uncaughtException';
+export const INVALID_CREDENTIALS = 'Invalid credentials';
+export const AUTHORIZATION = 'authorization';
+export const NO_TOKEN = 'No token provided.';
+export const INVALID_TOKEN = 'Failed to authenticate token.';

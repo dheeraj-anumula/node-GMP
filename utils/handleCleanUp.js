@@ -1,5 +1,5 @@
 import { CONNECTION_CLOSE_FAIL } from '../constants';
-import { logger } from '../loaders/logger';
+import { logger } from '../middlewares/logger';
 import { closeConnection } from '../loaders/sequelize';
 
 const handleCleanUp = async () => {
