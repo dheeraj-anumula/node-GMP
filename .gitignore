@@ -1,6 +1,6 @@
 /node_modules
 nodejs-hw1-ex1.txt
-.env
+.env*
 combined.log
 error.log
 exceptions.log
